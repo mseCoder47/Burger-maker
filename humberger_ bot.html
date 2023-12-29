@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Burger Maker</title>
+  <style>
+            .header-bar {
+                  background-color: #000; 
+                  color: #fff; 
+                  padding: 3% 100%; 
+                  text-align: center; 
+                  position: absolute;
+                  top:0;
+                  }
+       body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #97c6ef;
+        }
+        #canvas {
+            width: 470px;
+            height: 377px;
+            border: 2px solid #000;
+            position: absolute;
+            top:25%;
+            left: 35%;
+            background-color: #fefefe;  
+        }
+        .plate {
+            width: 91px;
+            position: absolute;
+            height: 5%;
+            top: -56.3%;
+            left: 44.5%;
+            background-color: #e5e5e5;
+            border-radius: 71px 77px 0 0;
+            border: 2px solid black ;
+        }
+        .bun-top {
+            width: 191px;
+            position: absolute;
+            height: 13%;
+            top: -56.3%;
+            left: 44.5%;
+            background-color: #e4921f;
+            border-radius: 71px 77px 0 0;
+            border: 2px solid black ;
+      }
+
+      .bun-bottom {
+            width: 191px;
+            height: 43px;
+            background-color: #e4921f;
+            border-radius: 9px 9px 30px 31px;
+            position: absolute;
+            left: 44.5%;
+            top: 70%;
+            border: 2px solid black ;
+
+      }
+
+      .meat {
+            width: 184px;
+            height: 3%;
+            background-color: #8e2f2f;
+            border-radius: 25px;
+            position: absolute;
+            top: -62.99%;
+            left: 44.8%;
+            border: 2px solid black ;
+      }
+
+      .tomato {
+            width: 184px;
+            height: 3%;
+            background-color: red;
+            border-radius: 5px;
+            position: absolute;
+            top: -53%;
+            left: 44.8%;
+            border: 2px solid black ;
+      }
+      .add_tomato {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-right: 10px; 
+            background-color: #b0b2b0;
+            position:absolute ;
+            top: 60% ;
+            left: 16% ;
+      }
+
+      .add_tomato:before {
+            content: "tomato";
+            display: inline-block;
+            margin-right: 5px;
+      }
+      .add_tomato:hover {
+            background-color: #e3e3e3;
+      }
+      .add_lettuce {
+            display: inline-block;
+            padding:  10px 23px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-right: 10px; 
+            background-color: #b0b2b0;
+            position:absolute ;
+            top: 40% ;
+            left: 16% ;
+      }
+
+      .add_lettuce:before {
+            content: "lettuce";
+            display: inline-block;
+            margin-right: 5px;
+      }
+      .add_lettuce:hover {
+            background-color: #e3e3e3;
+      }
+
+      .add_meat {
+            display: inline-block;
+            padding: 10px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-right: 10px; 
+            background-color: #b0b2b0;
+            position:absolute ;
+            top: 70% ;
+            left: 16% ;
+      }
+      .remove_meat {
+            display: inline-block;
+            padding: 10px 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+            background-color: #b0b2b0;
+            position:absolute ;
+            top: 25.3% ;
+            left: 61.9% ;
+      
+
+      }
+      .add_meat:before {
+            content: "beef";
+            display: inline-block;
+            margin-right: 5px;
+      }
+      .add_meat:hover {
+            background-color: #e3e3e3;
+      }
+      .remove_meat:before {
+            content: "back";
+            display: inline-block;
+            margin-right: 5px;
+      }
+      .remove_meat:hover {
+            background-color: #e3e3e3;
+      }
+      .add_cheese {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-right: 10px; 
+            background-color: #b0b2b0;
+            position:absolute ;
+            top: 50% ;
+            left: 16% ;
+      }
+
+      .add_cheese:before {
+            content: "cheese";
+            display: inline-block;
+            margin-right: 5px;
+      }
+      .add_cheese:hover {
+            background-color: #e3e3e3;
+      }
+      .Finish {
+            display: inline-block;
+            padding: 9px 23px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-right: 10px; 
+            background-color: #b0b2b0;
+            position:absolute ;
+            top: 79% ;
+            left: 15.9% ;
+      }  
+      .Finish:before {
+            content: "Finish";
+            display: inline-block;  
+            margin-right: 5px;
+      }
+      .Finish:hover {
+            background-color: #e3e3e3;
+      }   
+
+  </style>
+</head>
+<body>
+      <div class="header-bar"></div>
+          
+  <h1 style="text-align: center; font-size: 40px ;position: absolute;left: 42%;top:2%;color:white;">Burger Maker</h1>
+  <canvas id="canvas"></canvas>
+  <div id=plate class=plate></div>
+  <div id=meat class=meat></div>
+  <button id="add_meat" class="add_meat"></button> 
+  <button id="remove_meat" class="remove_meat"></button> 
+  <div id=lettuce class=lettuce ;  style=" width: 195px; height: 3%;position:absolute ; z-index: 0 ; top: -55% ; left: 44.4%">
+      <svg id="ev8whdLpPqr1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"><g transform="matrix(1.169932 0 0 0.961562-17.116366-2.535083)"><path d="M34.94735,5.23743l213.5571-.33515c18.64246,3.48728,23.29411,15.88235,17.64705,23.29412-5.35054,5.56513-15.52941-12.70588-15.52941-7.41176-2.11765,0-2.11765,6.70588-9.17647,6.70588-6.09034,0-6.09034-6.70588-11.29412-6.70588-10.55613,4.58823-21.4193,7.52488-30.35294,8.82353-13.52882.09341-22.2296-8.82353-32.47059-8.82353-6.36835,7.28659-14.92756,8.91977-19.76471,8.82353-7.66813.583-16.13859-9.52219-20.47059-14.11765-2.81207,4.49062-6.92749,10.58621-12.70588,9.88235-4.94659,0-12.64206-3.38957-19.76471-4.58824-4.88176,0-18.83584,13.14106-28.94118,7.41176-11.29412-7.41176-8.65683-7.85866-11.29412-12.70588-2.22014,6.52165-4.76628,12.6149-8.47059,12.70588-4.45804-.0643-5.64118-4.58167-7.76471-7.41176-3.86175-1.21382-10.47238,1.70253-17.65977,6.47119C9.4427,31.74775,18.94031,5.69085,34.94733,5.23743h.00002Z" fill="#3da510" stroke="#000000" stroke-width="3.6"/></g></svg>
+  </div>
+  <button id="add_lettuce" class="add_lettuce"></button> 
+  <div id=tomato class=tomato ></div>
+  <button id="add_tomato" class="add_tomato"></button> 
+  <div id=cheese ; class=cheese ;  style=" width: 195px; height: 3%;position:absolute ; z-index: 0 ; top: -65% ; left: 44.4% ">
+    <svg id="epbH9rqPwxu1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"><path d="M1683.97462,10.35708c204.045823.000001,152.84221,235.13194,147.79668,200.55961-90.97642,15.04907-7.74192-73.84291-147.79668-76.07433l-271.92599.00001c-.165,89.32667-38.52297,172.8962-110.78466,207.47545-88.87964,0-63.7013-131.40113-144.27197-131.40113-70.49933,0-65.46366,89.90603-120.85599,89.90603-90.642,0-82.66438-106.79922-120.85599-165.98035l-676.54165-.00001c-114.05797.00001-114.05797,76.07433-144.27197,76.07433-85.91498,6.7039,14.90352-190.32557,144.27197-200.55961c0,0,1011.66537,0,1445.23624,0h.00001Z" transform="matrix(1.077515 0 0 1.017598-67.910433-6.024677)" fill="#fecd17" stroke="#000000" stroke-width="10"/></svg>
+  </div>
+  <button id="add_cheese" class="add_cheese"></button> 
+  <div id="bun-top" class="bun-top"></div>
+  <div id="bun_bottom" class="bun-bottom"></div>
+  <button id="Finish" class="Finish"></button> 
+
+<script src="script.js"></script>
+</body>
+</html>
